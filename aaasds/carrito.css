@@ -6,11 +6,10 @@ body,ul,li.p{
     font-family: Arial, Helvetica, sans-serif;
 
 }
-
 body{
     margin-bottom: 100px;
-    background-color: #8f8f8f;}
 
+    background-color: #8f8f8f;}
 .a1 img{
     width: 60px;
 }
@@ -26,8 +25,9 @@ a{
 
 h1{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
     color: wheat;
+    font-size: 60px;
 }
 .header{
     max-width: 100%;
@@ -58,20 +58,16 @@ h1{
     border-radius: 16px;
     border: #1d1e20 solid;
 }
-/*MENUU*/
 .grid1{
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 800px;
+    max-width: 3000px;
     padding: 10px;
     margin: 0 auto;
     grid-gap: 20px;
     align-items: center;
     
-}
-img{
-    width: 290px;
 }
 .grid1 > div:nth-child(1){
     background-color: antiquewhite;
@@ -91,42 +87,52 @@ img{
     align-items: center;
     text-align:center ;
 }
-.grid1 > div:nth-child(n + 4){
-display: grid;
-background-color: antiquewhite;
-
-grid-gap: 10px;
-align-items: center;
-text-align:center ;
-}
-
-
-
-.grid1 > div.anuncio{
+.grid1 > div:nth-child(4){
     background-color: antiquewhite;
- grid-column: 1;
- grid-row: 2/5;
- padding: 10px;
- display: block;
- border: #1d1e20 solid;  
-   
+
+    align-items: center;
+    text-align:center ;
 }
+
+    
+    
+    
+    .grid1 > div.anuncio{
+        background-color: antiquewhite;
+     grid-column: 1;
+     grid-row: 2/5;
+     padding: 10px;
+     display: block;
+     border: #1d1e20 solid;  
+       
+    }
+    @media(max-width:600px){
+        .grid1{
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .grid1 > div:nth-child(n + 4){
+            display: block;
+        }
+    
+    .grid1 > div.anuncio { 
+         grid-column: auto;
+         grid-row: auto;
+          order: -1;
+    
+            
+        }
+    }
+    .anuncio img{
+        width: 280px;
+    }
+
 @media(max-width:600px){
     .grid1{
         grid-template-columns: repeat(1, 1fr);
     }
-    .grid1 > div:nth-child(n + 4){
-        display: block;
-    }
-
-.grid1 > div.anuncio { 
-     grid-column: auto;
-     grid-row: auto;
-      order: -1;
-
-        
-    }
+    
 }
-.anuncio img{
-    width: 280px;
+
+.asd img{
+    width: 190px;
 }
