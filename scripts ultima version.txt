@@ -1,0 +1,205 @@
+use Inmortals;
+
+create table iniciarsesion (
+idiniciarsesion INT NOT null auto_increment,
+correo varchar(45) not null,
+contraseña varchar (45),
+primary key (idiniciarsesion)) ;
+create table tipousuario(
+idtipousuario INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idtipousuario) );
+
+create table tipodocumento(
+idtipodocumento INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idtipodocumento) );
+
+create table medioenvio(
+idmedioenvio INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idmedioenvio) );
+
+create table tipodocumentocontable(
+idtipodocumentocontable INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idtipodocumentocontable) );
+
+create table mediodepago(
+idmediodepago INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idmediodepago) );
+
+create table tipoenvio(
+idtipoenvio INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idtipoEnvio) );
+
+create table categorias(
+idcategorias INT NOT NULL AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idcategorias) );
+
+create table marcas(
+idmarcas INT NOT NULL  AUTO_INCREMENT,
+descripcion Varchar(45) NOT NULL,
+primary key (idmarcas) );
+
+create table Usuario (
+idusuario int not null AUTO_INCREMENT,
+id_tipousuario int not null AUTO_INCREMENT,
+id_tipodocumento int not null AUTO_INCREMENT,
+nombre varchar(45),
+apellido  varchar(45),
+telefono  varchar(45),
+direccion varchar(45),
+username varchar(45),
+clave varchar(45),
+primary key(idusuario),
+foreign key (id_tipousuario) references tipousuario  (idtipousuario),
+foreign key (id_tipodocumento) references tipodocumento  (idtipodocumento));
+
+create table infoenvio(
+idinfoenvio INT NOT NULL AUTO_INCREMENT,
+id_usuario INT NOT NULL,
+Descripcion Varchar(45) NOT NULL,
+primary key (idinfoenvio),
+foreign key (id_usuario) references usuario (idusuario) );
+
+create table pedidocabecera(
+idpedidocabecera INT NOT NULL AUTO_INCREMENT,
+id_usuario INT NOT NULL,
+id_mediodepago INT NOT NULL,
+id_tipodocumentocontable INT NOT NULL,
+descripcion Varchar(45) NOT NULL,
+estadoDelPedido Varchar(45) NOT NULL,
+primary key (idpedidocabecera),
+foreign key (id_usuario) references usuario (idusuario),
+foreign key (id_mediodepago) references mediodepago (idmediodepago),
+foreign key (id_tipodocumentocontable) references tipodocumentocontable (idtipodocumentocontable) );
+
+create table envio(
+idenvio INT NOT NULL AUTO_INCREMENT,
+id_pedidocabecera INT NOT NULL, 
+id_medioenvio INT NOT NULL,
+descripcion Varchar(45) NOT NULL,
+precioenvio Varchar(45) NOT NULL,
+primary key (idenvio),
+foreign key (id_pedidocabecera) references pedidocabecera (idpedidocabecera), 
+foreign key (id_medioenvio) references medioenvio (idmedioenvio) );
+
+create table producto(
+idproducto INT NOT NULL AUTO_INCREMENT,
+id_categorias INT NOT NULL,
+id_marcas INT NOT NULL,
+descripcion Varchar(45) NOT NULL,
+precio double NOT NULL,
+primary key (idproducto),
+foreign key (id_marcas) references marcas (idmarcas) );
+
+create table inventario(
+idinventario INT NOT NULL AUTO_INCREMENT,
+id_producto INT NOT NULL,
+decripcion Varchar(45) NOT NULL,
+entrada Varchar(45) NOT NULL,
+salida Varchar(45) NOT NULL,
+cantidad Varchar(45) NOT NULL,
+saldo Varchar(45) NOT NULL,
+primary key (idinventario),
+foreign key (id_producto) references producto (idproducto) );
+
+create table carrito(
+idcarrito INT NOT NULL AUTO_INCREMENT,
+id_producto INT NOT NULL,
+informacionproducto Varchar(45) NOT NULL,
+primary key (idcarrito), 
+foreign key (id_producto) references producto (idproducto) );
+
+create table detallespedido(
+iddetallespedido INT NOT NULL AUTO_INCREMENT,
+id_pedidocabecera INT NOT NULL,
+id_carrito INT NOT NULL,
+cantidad Varchar(45) NOT NULL,
+precio Varchar(45) NOT NULL,
+primary key (iddetallespedido),
+foreign key (id_pedidocabecera) references pedidocabecera (idpedidocabecera));
+
+
+
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/**/*/
+
+
+use Inmortals;
+
+select * from tipodocumento;
+insert into tipodocumento (idtipodocumento,descripcion) values ('1','Cedula'),('2','tarjetaidentidad'),('3','cedulaextranjeria'),('4','pasaporte'),('5','PEP');
+
+select * from tipousuario;
+insert into tipousuario (idtipousuario,descripcion) values ('1','administrador'),('2','usuario'),('3','invitado');
+
+select * from usuario; 
+insert into usuario (idusuario,id_tipousuario,id_tipodocumento,nombre,apellido,telefono,direccion,username,clave) values
+('1',2,4,'nicolas','alarcon','4830163278','calle170','nixrox','irvinwalle'),
+('2',3,3, 'andres','briceño','8604861543','calle133','d3rf','sadasd'),
+('3',2,1,  'harold','gaona', '2146578899', 'calle 132','kingv2','sadgehjnv');
+
+select * from mediodepago;
+insert into mediodepago (idmediodepago,descripcion) values ('1','tarjetadecredito'),('2','tarjetadecredito'),('3','paypal'),('4','recorgerentienda'),('5','PSE');
+
+select * from tipodocumentocontable;
+insert into tipodocumentocontable (idtipodocumentocontable,descripcion) values ('1', 'factura'),('2','recibodecobro'),('3','vales'),('4','comprobantedepago'),('5','comprobantedevolucion');
+
+select * from pedidocabecera;
+insert into pedidocabecera (idpedidocabecera,id_usuario,id_mediodepago,id_tipodocumentocontable,descripcion,estadoDelpedido) values
+('1',1,2,1,'tarjetadevito,factura','enproceso'),
+('2',3,2,3,'tarjetadevito,recibodecobro','enproceso'),
+('3',2,3,2,'paypal,resibodecobro','enproceso'),
+('4',1,1,4,'tarjetadecredito,comprobantedepago','enproceso');
+
+select * from infoenvio;
+insert into infoenvio (idinfoenvio,id_usuario,descripcion) values('1',1,'contraentrega'),('2',3,'puntoentrega'),('3',2,'domicilio');
+
+select * from categorias;
+insert into categorias (idcategorias,descripcion) values (1,'audifonos'),(2,'teclados'),(3,'mouses'),(4,'muosepad'),(5,'pantalla');
+
+select * from marcas;
+insert into marcas (idmarcas,descripcion) values (1,'vsg'),(2,'corsair'),(3,'logitech'),(4,'hyperx'),(5,'msi');
+
+select * from producto;
+insert into producto (idproducto,id_categorias,id_marcas,descripcion,precio) values 
+('1',1,2,'audifonoscorsair','150.000'),
+('2',2,1,'tecladovsg','150.000'),
+('3',3,3,'mouselogitech','150.000'),
+('4',4,4,'mousepadhyperx','150.000'),
+('5',5,5,'pantallamsi','150.000');
+
+select * from inventario;
+insert into inventario (idinventario,id_producto,decripcion,entrada,salida,cantidad,saldo) values 
+('1',1,'audifonoscorsair','27/04/2022','27/05/2022',1,150.000),
+('2',2,'tecladovsg','28/04/2022','28/05/2022',1,150.000),
+('3',3,'mouselogitech','29/04/2022','29/05/2022',1,150.000),
+('4',4,'mousepadhyperx','30/04/2022','30/05/2022',1,150.000),
+('5',5,'pantallamsi','01/05/2022','31/05/2022',1,150.000);
+
+select * from carrito;
+insert into carrito (idcarrito,id_producto,informacionproducto) values 
+('1',1,'audifonoscorsair'),
+('2',2,'tecladovsg'),
+('3',3,'mouselogitech'),
+('4',4,'mousepadhuperx'),
+('5',5,'pantallamsi');
+
+select * from medioenvio;
+insert into medioenvio (idmedioenvio,descripcion) values (1,'contraentrega'),(2,'domicilio'),(3,'puntodeentrega');
+
+select	* from envio;
+insert into envio (idenvio,id_pedidocabecera,id_medioenvio,descripcion,precioenvio) values ('1',1,2,'domicilio','40.000'),('2',1,2,'contraentrega','40.000'),('3',1,2,'puntoentrega','40.000')
+,('4',2,3,'domicilio','40.000'),('5',3,2,'contraentrega','40.000');
+
+
+select * from detallespedido;
+insert into detallespedido(iddetallespedido,id_pedidocabecera,id_carrito,cantidad,precio) values 
+('1',1,4,'1','40.000'),
+('2',2,3,'1','40.000'),
+('3',3,2,'1','40.000'),
+('4',4,1,'1','40.000');
