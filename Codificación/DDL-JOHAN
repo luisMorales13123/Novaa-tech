@@ -1,0 +1,53 @@
+
+-- -----------------------------------------------------
+-- Table `tecnikstore`.`Persona`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tecnikstore`.`Persona` ;
+
+CREATE TABLE IF NOT EXISTS `tecnikstore`.`Persona` (
+  `idPersona` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `nombre` VARCHAR(45) NOT NULL COMMENT '',
+  `apellido` VARCHAR(45) NULL COMMENT '',
+  `telefono` VARCHAR(45) NOT NULL COMMENT '',
+  `documento` VARCHAR(45) NOT NULL COMMENT '',
+  `fechaNacimiento` DATE NULL COMMENT '',
+  PRIMARY KEY (`idPersona`)  COMMENT '',
+  UNIQUE INDEX `idPersona_UNIQUE` (`idPersona` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tecnikstore`.`Cliente`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tecnikstore`.`Cliente` ;
+
+CREATE TABLE IF NOT EXISTS `tecnikstore`.`Cliente` (
+  `Persona_idPersona` INT NOT NULL COMMENT '',
+  `telefonoAux` VARCHAR(45) NOT NULL COMMENT '',
+  UNIQUE INDEX `telefonoAux_UNIQUE` (`telefonoAux` ASC)  COMMENT '',
+  PRIMARY KEY (`Persona_idPersona`)  COMMENT '',
+  CONSTRAINT `fk_Usuario_Persona1`
+    FOREIGN KEY (`Persona_idPersona`)
+    REFERENCES `tecnikstore`.`Persona` (`idPersona`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tecnikstore`.`Usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tecnikstore`.`Usuario` ;
+
+CREATE TABLE IF NOT EXISTS `tecnikstore`.`Usuario` (
+  `Cliente_Persona_idPersona` INT NOT NULL COMMENT '',
+  `correo` VARCHAR(45) NOT NULL COMMENT '',
+  `contraseña` VARCHAR(45) NOT NULL COMMENT '',
+  `userName` VARCHAR(45) NOT NULL COMMENT '',
+  PRIMARY KEY (`Cliente_Persona_idPersona`)  COMMENT '',
+  CONSTRAINT `fk_Usuario_Cliente1`
+    FOREIGN KEY (`Cliente_Persona_idPersona`)
+    REFERENCES `tecnikstore`.`Cliente` (`Persona_idPersona`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
