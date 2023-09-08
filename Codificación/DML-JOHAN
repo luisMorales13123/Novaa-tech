@@ -1,0 +1,32 @@
+
+
+/**-----------------tipo de documento—----------**/
+INSERT INTO `tecnikstore`.`tipodocumento` (`Persona_idPersona`, `tipoDocumento`) VALUES ('1','NIT');
+INSERT INTO `tecnikstore`.`tipodocumento` (`Persona_idPersona`, `tipoDocumento`) VALUES ('2', 'Cedula');
+INSERT INTO `tecnikstore`.`tipodocumento` (`Persona_idPersona`, `tipoDocumento`) VALUES ('3', 'Pasaporte');
+INSERT INTO `tecnikstore`.`tipodocumento` (`Persona_idPersona`, `tipoDocumento`) VALUES ('4', 'Cedula_extranjeria');
+INSERT INTO `tecnikstore`.`tipodocumento` (`Persona_idPersona`, `tipoDocumento`) VALUES ('5', 'tarjeta_identidad');
+
+
+/**-------------tabla usuario**/
+INSERT INTO `tecnikstore`.`usuario` (`Cliente_Persona_idPersona`, `correo`, `contraseña`, `userName`) VALUES ('1', 'antonio.barregas@gmail.com', '129805', 'antonio');
+INSERT INTO `tecnikstore`.`usuario` (`Cliente_Persona_idPersona`, `correo`, `contraseña`, `userName`) VALUES ('2', 'perez_mora123@gmail.com', 'wwwperez', 'perezito');
+INSERT INTO `tecnikstore`.`usuario` (`Cliente_Persona_idPersona`, `correo`, `contraseña`, `userName`) VALUES ('3', 'jairo9812@hotmail.com', '12345', 'jairo');
+INSERT INTO `tecnikstore`.`usuario` (`Cliente_Persona_idPersona`, `correo`, `contraseña`, `userName`) VALUES ('4', 'alex2020@gmail.com', 'ABC_9870', 'alex');
+INSERT INTO `tecnikstore`.`usuario` (`Cliente_Persona_idPersona`, `correo`, `contraseña`, `userName`) VALUES ('5', 'pepe@gmail.com', 'PEPE', 'pepe');
+
+
+
+/**tabla tecnico**/
+INSERT INTO `tecnikstore`.`tecnico` (`Usuario_Cliente_Persona_idPersona`, `referencias`) VALUES ('1', 'Bueno');
+INSERT INTO `tecnikstore`.`tecnico` (`Usuario_Cliente_Persona_idPersona`, `referencias`) VALUES ('2', 'Muy bueno');
+INSERT INTO `tecnikstore`.`tecnico` (`Usuario_Cliente_Persona_idPersona`, `referencias`) VALUES ('3', 'Buena');
+INSERT INTO `tecnikstore`.`tecnico` (`Usuario_Cliente_Persona_idPersona`, `referencias`) VALUES ('4', 'Buena');
+INSERT INTO `tecnikstore`.`tecnico` (`Usuario_Cliente_Persona_idPersona`, `referencias`) VALUES ('5', 'Muy bueno');
+
+
+/**tabla de tipo usuario**/
+INSERT INTO `tecnikstore`.`tipousuario` (`Usuario_Cliente_Persona_idPersona`, `tipoUsuario`) VALUES ('1', 'Admin');
+INSERT INTO `tecnikstore`.`tipousuario` (`Usuario_Cliente_Persona_idPersona`, `tipoUsuario`) VALUES ('2', 'tecnico');
+INSERT INTO `tecnikstore`.`tipousuario` (`Usuario_Cliente_Persona_idPersona`, `tipoUsuario`) VALUES ('3', 'cliente');
+
