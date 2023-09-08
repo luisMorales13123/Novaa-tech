@@ -1,0 +1,377 @@
+/* Estilos de html*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+/* Estilos de la clase header (primer section)*/
+.header {
+    min-height: 100vh;
+    width: 100%;
+    /*Imagen de fondo*/
+    background-image: linear-gradient(rgba(4, 9, 30,0.7), 
+        rgba(4, 9, 30,0.7)), url(/img/Bici.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+/* Estilos de la barra de navecacion */
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Estilos del logo en la barra de navegacion*/
+nav img {
+    width: 60px;
+    border-radius: 50%;
+}
+/* Estilos de la clase "nav-links"*/
+.nav-links {
+    flex: 1;
+    text-align: right;
+
+}
+/* Estilos de la clase "Li"*/
+.links {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+/* Estilos de la clase "Bot", o sea, lista de links*/
+.Bot {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+/* Efecto de la barra negra en los links*/
+.links::after {
+    content: '';
+    /* Ancho de la linea que está abajo de la lista de links*/
+    width: 0%;
+    height: 2px;
+    background: #000000;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+/*Funcion que activa el efecto de la barra negra */
+.links:hover::after {
+    width: 100%;
+}
+/*Estilos de la clase "text-box" (div)*/
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+/*Estilos del titulo*/
+.text-box h1 {
+    font-size: 62px;
+}
+/*Estilos del texto debajop del titulo*/
+.text-box p {
+    margin: 10px 0 40PX;
+    font-size: 14px;
+    color: #fff;
+}
+/*Estilos del boton (link - a)*/
+.link-Tienda {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+/*Efecto hover*/
+.link-Tienda:hover {
+    border: 1px solid #000000;
+    background: #000000;
+    transition: 1s;
+}
+
+
+
+
+
+/* Estilos de la segunda secsion de la página */
+
+/* Estilos de la seccion "Informacion" */
+.Informacion {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+/* Estilos del titulo */
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+/* Estilos del párrafo */
+p {
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+/* Estilos del div "Caja" */
+.Caja {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+
+}
+/* Estilos del las cajas dentro del div (clase "Caja")*/
+.Cajitas {
+    flex-basis: 31%;
+    background-color: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.7s;
+}
+/* Estilos del las textos en h3*/
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+/* Estilos del las cajas dentro del div (clase "Caja") al poner el mouse encima*/
+.Cajitas:hover {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Estilos del la tercera seccion */
+.InfoDos {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+/* Estilos del contenedor de la Imagen */
+.InfoDosImg {
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+/* Estilos de la Imagen */
+.InfoDosImg img {
+    width: 100%;
+    display: block;
+}
+/* Estilos del contenedor del texto por debajo de la imagen */
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.7s;
+}
+/* Estilos del la imagen al hacer hover */
+.layer:hover {
+    background: rgba(13, 18, 88, 0.7);
+}
+/* Estilos del texto del por debajo de la imagen */
+.layer h3 {
+    width: 100%;
+    font-weight: 500;
+    color: #fff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.7S;
+}
+/* Estilos del texto del por debajo de la imagen al hacer hover*/
+.layer:hover h3 {
+    bottom: 49%;
+    opacity: 1;
+}
+
+
+
+/* Estilos de la ultima secsion*/
+
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), 
+        rgba(0,0,0,0.7)), url(img/PersonasTrabajando.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h1 {
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+
+/* Estilos del footer*/
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer h4 {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.icons .fa-brands {
+    color: #000000;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+
+/* ------------- Estilos del registro y login ------------- */
+
+.fondo {
+    min-height: 100vh;
+    width: 100%;
+    /*Imagen de fondo*/
+    background-image: linear-gradient(rgba(4, 9, 30,0.7), 
+        rgba(4, 9, 30,0.7)), url(/img/Estiramiento.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.form {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 50PX 60PX 70PX;
+    text-align: center;
+}
+
+.form h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #000000;
+    position: relative;
+}
+
+.form h1::after {
+    content: '';
+    width: 70px; 
+    height: 4px;
+    border-radius: 3px;
+    background: #000000;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.inputsIndiv {
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.inputsIndiv i {
+    margin-left: 15px;
+    color: #000000;
+}
+
+.form p {
+    text-align: left;
+    font-size: 13px;
+}
+
+.form p a {
+    text-decoration: none; 
+}
+
+.botones {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones button {
+    flex-basis: 48%;
+    background: #000000;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.inputs {
+    height: 280px;
+}
+
+.botones button.dis {
+    background: #eaeaea;
+    color: #555;
+}
+/*----------Recuperacion de conteaseña 
+.formRecCon {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 50PX 60PX 70PX;
+    text-align: center;
+    align-items: center;
+}
+
+.boton {
+
+}
