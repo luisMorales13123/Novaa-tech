@@ -1,0 +1,212 @@
+
+create database proyectoTecknicStore ;
+use proyectoTecknicStore ;
+
+
+create table TipoUsuario (
+  idTipoUsuario int  not null  auto_increment,
+  TipoUsuario VARCHAR(45)  not null ,
+primary key(idTipoUsuario))
+;
+
+
+
+create table TipodeDocumento (
+  idTipodeDocumento int  not null  auto_increment,
+  TipoDocumento VARCHAR(45)  not null ,
+primary key(idTipodeDocumento))
+;
+
+
+ 
+create table Persona (
+  idPersona int  not null  auto_increment,
+  pNombre VARCHAR(45)  not null ,
+  sNombre VARCHAR(45) NULL,
+  pApellido VARCHAR(45)  not null ,
+  sApellido VARCHAR(45) NULL,
+  Telefono VARCHAR(45)  not null ,
+  Documento VARCHAR(45)  not null ,
+  FechaNacimiento DATE NULL,
+  TelefonoAux VARCHAR(45) NULL,
+  TipoDcoumento INT  not null ,
+primary key(idPersona),
+    foreign key (TipoDcoumento)
+  references TipodeDocumento (idTipodeDocumento)
+   )
+;
+
+
+ 
+create table Uusario (
+  idUsuario INT  not null ,
+  Correo VARCHAR(45)  not null ,
+  Clave INT  not null ,
+  UsarName VARCHAR(45)  not null ,
+  TipoUsuario INT  not null ,
+primary key(idUsuario),
+    foreign key (TipoUsuario)
+  references TipoUsuario (idTipoUsuario),
+constraint fkUusarioPersona1
+    foreign key (idUsuario)
+  references Persona (idPersona)
+   )
+;
+
+
+
+create table Administrador (
+  PersonaidPersona INT  not null ,
+  UusarioidUusario INT  not null ,
+primary key(PersonaidPersona),
+constraint fkUusariohasPersonaPersona1
+    foreign key (PersonaidPersona)
+  references Persona (idPersona)
+)
+;
+
+
+
+create table TipoCambio (
+  idTipoCambio int  not null  auto_increment,
+  TipoCambio VARCHAR(45)  not null ,
+primary key(idTipoCambio))
+;
+
+
+ 
+create table RegistroCambios (
+  idRegistroCambios int  not null  auto_increment,
+  Fecha DATE  not null ,
+  TipoCambio INT  not null ,
+  IdAdministrador INT  not null ,
+primary key(idRegistroCambios),
+constraint fkRegistroCambiosTipoCambio2
+    foreign key (TipoCambio)
+  references TipoCambio (idTipoCambio),
+constraint fkRegistroCambiosAdministrador2
+    foreign key (IdAdministrador)
+  references Administrador (PersonaidPersona)
+);
+
+
+
+create table CargosTecnico (
+  idCargosTecnico int  not null  auto_increment,
+  CargosTecnico VARCHAR(45)  not null ,
+primary key(idCargosTecnico));
+
+
+ 
+create table Tecnico (
+  IdTecnico INT  not null ,
+  CargosTecnicoidCargosTecnico INT  not null ,
+  idUsuarioTecnico INT  not null ,
+primary key(IdTecnico),
+constraint fkTecnicoCargosTecnico2
+    foreign key (CargosTecnicoidCargosTecnico)
+  references CargosTecnico (idCargosTecnico),
+constraint fkTecnicoPersona1
+    foreign key (IdTecnico)
+  references Persona (idPersona),
+constraint fkTecnicoUusario1
+    foreign key (idUsuarioTecnico)
+  references Uusario (idUsuario)
+);
+
+
+
+create table Marcas (
+  idMarcas int  not null  auto_increment,
+  Marcas VARCHAR(45)  not null ,
+primary key(idMarcas));
+
+
+
+create table TipoEquipo (
+  idTipoEquipo int  not null  auto_increment,
+  TipoEquipo VARCHAR(45)  not null ,
+primary key(idTipoEquipo));
+
+
+
+create table Equipo (
+  idEquipo int  not null  auto_increment,
+  descInconveniente VARCHAR(600)  not null ,
+  idMarca INT  not null ,
+  idTipoEquipo INT  not null ,
+  idUusario INT  not null ,
+primary key(idEquipo),
+constraint fkEquipoMarcas2
+    foreign key (idMarca)
+  references Marcas (idMarcas),
+constraint fkEquipoTipoEquipo1
+    foreign key (idTipoEquipo)
+  references TipoEquipo (idTipoEquipo));
+
+
+
+create table TipoServicio (
+  idTipoServicio int  not null  auto_increment,
+  TipoServicio VARCHAR(45)  not null ,
+primary key(idTipoServicio));
+
+
+
+create table Servicio (
+  idServicio int  not null  auto_increment,
+  descDaño VARCHAR(45)  not null ,
+  ServicioTerminado VARCHAR(45)  not null ,
+  idEquipoaReparar INT  not null ,
+  IdTecnicoEncargado INT  not null ,
+  idDueñoServicio INT  not null ,
+  TipoServicioidTipoServicio INT  not null ,
+primary key(idServicio),
+constraint fkServicioEquipo2
+    foreign key (idEquipoaReparar)
+  references Equipo (idEquipo),
+constraint fkServicioTecnico2
+    foreign key (IdTecnicoEncargado)
+  references Tecnico (IdTecnico),
+constraint fkServicioTipoServicio1
+    foreign key (TipoServicioidTipoServicio)
+  references TipoServicio (idTipoServicio)
+  );
+
+
+
+create table Factura (
+  idFactura int  not null  auto_increment,
+  idServicio INT  not null ,
+  idDueñoFactura INT  not null ,
+  FechaFactura DATE  not null ,
+  CostoTotal VARCHAR(45)  not null ,
+  TiempoGarantia VARCHAR(45)  not null ,
+primary key(idFactura),
+constraint fkFacturaServicio2
+    foreign key (idServicio)
+  references Servicio (idServicio)
+);
+
+
+
+create table DetalleFactura (
+  idDetalleFactura int  not null  auto_increment,
+  idServicioSolicitado INT  not null ,
+  CostoUnitario VARCHAR(45)  not null ,
+  idFactura INT  not null ,
+primary key(idDetalleFactura),
+constraint fkDetalleFacturaTipoServicio1
+    foreign key (idServicioSolicitado)
+  references TipoServicio (idTipoServicio),
+constraint fkDetallefacturaFactura2
+    foreign key (idFactura)
+  references factura (idFactura)
+ );
+
+USE proyectoTecknicStore ;
+
+
+
+
+
