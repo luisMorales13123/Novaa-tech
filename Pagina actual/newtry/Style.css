@@ -1,0 +1,114 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: hsl(0, 0%, 20%);
+    margin: 0;
+}
+
+.container {
+    margin-top: 50px;
+    font-family: 'Arial', sans-serif;
+}
+
+.registroProducto {
+    background: linear-gradient(135deg, #f8f6f3, #e5ded1); 
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    margin-bottom: 20px;
+    border: 2px solid #d0ab8a; 
+}
+
+.tituloCaja {
+    background: linear-gradient(45deg, #e9a469, #b37a57); 
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px 20px 0 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tituloCaja h3 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.grupoFormulario {
+    margin-bottom: 30px;
+}
+
+.form-estiloImput {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #d0ab8a; 
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 0 15px rgba(208, 171, 138, 0.4); 
+}
+
+.estiloBoton {
+    background: linear-gradient(45deg, #d0ab8a, #b37a57); 
+    color: #fff;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.estiloBoton:hover {
+    background: linear-gradient(45deg, #b37a57, #8d5138);
+}
+
+.resultado {
+    background: linear-gradient(135deg, #f8f6f3, #e5ded1); 
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+}
+
+.buscarContenedor {
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #d0ab8a, #b37a57);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.buscar {
+    display: flex;
+}
+
+.estiloImput {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #d0ab8a; 
+    border-radius: 12px;
+    outline: none;
+}
+
+.estiloTabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.estiloTabla th,
+.estiloTabla td {
+    border: 2px solid #d0ab8a; 
+    padding: 20px;
+    text-align: left;
+}
+
+.estiloTabla th {
+    background: linear-gradient(45deg, #d0ab8a, #b37a57); 
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
