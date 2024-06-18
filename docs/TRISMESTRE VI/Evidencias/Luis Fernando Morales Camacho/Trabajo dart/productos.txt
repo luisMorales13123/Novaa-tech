@@ -1,0 +1,10 @@
+1,Producto A,100.0,true
+2,Producto B,50.0,false
+3,Producto C,80.0,true
+4,Producto D,120.0,false
+5,Producto E,90.0,true
+6,Producto F,60.0,false
+7,Producto G,110.0,true
+8,Producto H,70.0,false
+9,Producto I,130.0,true
+10,Producto J,85.0,false

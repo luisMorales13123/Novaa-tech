@@ -1,0 +1,1 @@
+//ejercisio 1.24 resuleve este.
