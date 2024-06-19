@@ -1,0 +1,22 @@
+Explicación del Mapa Conceptual Actualizado:
+ISO 29119: Casos de Prueba: Indica que los casos de prueba siguen los estándares y prácticas definidos en la norma ISO 29119 para el proceso de prueba de software TecnickStore.
+
+Descripción, Fecha, Área Funcional: Detallan la descripción del caso de prueba, la fecha de ejecución y el área funcional específica del sistema donde se realiza la prueba.
+
+Subproceso: Describe el subproceso dentro del área funcional que se está probando, como el cambio manual de la URL en el ingreso administrativo.
+
+Funcionalidad de Seguridad: Enfocada en la seguridad de la URL y la necesidad de redirigir correctamente.
+
+Datos / Acciones de Entrada: Especifica los datos de entrada necesarios para ejecutar el caso de prueba, como la URL actual.
+
+Requerimientos de Ambiente de Pruebas: Condiciones del entorno necesarias para la ejecución del caso de prueba, como la conexión a internet.
+
+Procedimientos Especiales Requeridos: Acciones o procedimientos específicos que deben seguirse para verificar la seguridad en el formulario de ingreso del ROL.
+
+Dependencias con Otros Casos de Prueba: Indica si existen dependencias con otros casos de prueba para su ejecución.
+
+Resultado Esperado, Resultado Obtenido: Describe lo que se espera lograr y lo que realmente se obtuvo después de ejecutar el caso de prueba.
+
+Estado, Última Fecha de Estado: Estado actual del caso de prueba y la fecha más reciente en que se revisó.
+
+Observaciones: Espacio para comentarios adicionales o notas relevantes sobre el caso de prueba.
