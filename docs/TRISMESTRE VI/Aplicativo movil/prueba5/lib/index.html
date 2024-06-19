@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios de Reparación</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: blob: 'unsafe-inline' 'unsafe-eval'; connect-src *; font-src 'self'; img-src * data:; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; style-src * 'self' 'unsafe-inline';">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Gestión de Servicios de Reparación</h1>
+    </header>
+
+    <main>
+        <section class="servicios-section">
+            <h2>Servicios Disponibles</h2>
+            <table id="tabla-servicios">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Servicio</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Aquí se generarán dinámicamente las filas de servicios -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="formulario-section">
+            <h2>Crear / Editar Servicio</h2>
+            <form id="formulario-servicio">
+                <input type="hidden" id="id" name="id">
+                <label for="nombre">Nombre del Servicio:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" rows="3" required></textarea>
+
+                <div class="botones">
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="cancelar">Cancelar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+
+<script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>
