@@ -1,8 +1,9 @@
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { administrador } from '../../interfaces/Administrador/Administrador';
+
 
 
 @Injectable({
@@ -18,8 +19,13 @@ export class AdministradorService {
       this.myapiUrl = 'api/Adiministrador/Administrador/'
     }
   //Listar Producto
-    getListProducts(): Observable<administrador[]>{
-  return this.http.get<administrador[]>(`${this.myappUrl}${this.myapiUrl}`);
+
+  getListProducts(): Observable<administrador[]>{
+ 
+
+     const token = localStorage.getItem('token')
+    const header = new HttpHeaders().set('Authorization',`Bearer ${token}`)
+return this.http.get<administrador[]>(`${this.myappUrl}${this.myapiUrl}`,{headers:header}); 
     }
   //Eliminar Producto
     deleteProducto(id: number): Observable<void> {

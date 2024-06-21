@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './lista-persona.component.html',
   styleUrl: './lista-persona.component.css'
 })
-export class ListaPersonaComponent {
+export class ListaPersonaComponent implements OnInit {
 
   ListarPersona: persona[] = []
   loading: boolean = false;

@@ -44,7 +44,6 @@ import { ListarEquipoComponent } from './componentes/listar/listar-equipo/listar
 import { AgregarEditarEquipoComponent } from './componentes/agregar-editar/agregar-editar-equipo/agregar-editar-equipo.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { SignInComponent } from './componentes/sign-in/sign-in.component';
-import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { AuthGuard } from './utils/auth.guard';
 import { VistaUsuariComponent } from './componentes/vista-usuari/vista-usuari.component';
 
@@ -122,7 +121,7 @@ const routes: Routes = [
   { path: 'signIn', component: SignInComponent },
 
   { path: 'vistausuario', component: VistaUsuariComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] },
   
   { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];

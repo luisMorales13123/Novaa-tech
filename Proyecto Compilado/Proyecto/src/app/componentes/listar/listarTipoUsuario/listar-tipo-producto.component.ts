@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './listar-tipo-producto.component.html',
   styleUrl: './listar-tipo-producto.component.css'
 })
-export class ListarTipoProductoComponent {
+export class ListarTipoProductoComponent implements OnInit {
   ListarTipoUsuario: tipousuario[] = []
   loading: boolean = false;
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Marcas } from '../../interfaces/Marcas/Marcas';
 
@@ -17,8 +17,12 @@ export class MarcasService {
   }
   // Listar
   getListMarcas(): Observable<Marcas[]>{
-    return this.http.get<Marcas[]>(`${this.myapp}${this.apiurl}Listar`);
-  }
+  
+    const token = localStorage.getItem('token')
+    const header = new HttpHeaders().set('Authorization',`Bearer ${token}`)
+return this.http.get<Marcas[]>(`${this.myapp}${this.apiurl}Listar`,{headers:header}); 
+
+}
   // ELiminar
   deleteProducto(id: number): Observable<void> {
     return this.http.delete<void>(`${this.myapp}${this.apiurl}Eliminar/${id}`)

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Marcas } from '../../../interfaces/Marcas/Marcas';
 import { ToastrService } from 'ngx-toastr';
 import { MarcasService } from '../../../servicios/marcas/marcas.service';
@@ -9,7 +9,7 @@ import { MarcasService } from '../../../servicios/marcas/marcas.service';
   styleUrls: ['./listar-marcas.component.css'],
 })
 
-export class ListarMarcasComponent {
+export class ListarMarcasComponent  implements OnInit {
 
   ListarMarcas: Marcas[] = []
   loading: boolean = false;

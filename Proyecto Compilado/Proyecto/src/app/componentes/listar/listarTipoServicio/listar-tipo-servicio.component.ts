@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './listar-tipo-servicio.component.html',
   styleUrl: './listar-tipo-servicio.component.css'
 })
-export class ListarTipoServicioComponent {
+export class ListarTipoServicioComponent  implements OnInit{
   ListarTipoServicio: tiposervicio[] = []
   loading: boolean = false;
 

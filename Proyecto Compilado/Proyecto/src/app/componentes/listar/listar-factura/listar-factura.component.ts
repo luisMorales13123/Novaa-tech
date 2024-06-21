@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './listar-factura.component.html',
   styleUrl: './listar-factura.component.css'
 })
-export class ListarFacturaComponent {
+export class ListarFacturaComponent  implements OnInit {
 
   ListarFactura: factura[] = []
   loading: boolean = false;

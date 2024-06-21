@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './listar-tipo-documento.component.html',
   styleUrl: './listar-tipo-documento.component.css'
 })
-export class ListarTipoDocumentoComponent {
+export class ListarTipoDocumentoComponent implements OnInit {
   ListarDocumento: tipodedocumento[] = []
   loading: boolean = false;
 

@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './listar-administrador.component.html',
   styleUrl: './listar-administrador.component.css'
 })
-export class ListarAdministradorComponent {
+export class ListarAdministradorComponent implements OnInit{
   ListarAdministrador: administrador[] = []
   loading: boolean = false;
 

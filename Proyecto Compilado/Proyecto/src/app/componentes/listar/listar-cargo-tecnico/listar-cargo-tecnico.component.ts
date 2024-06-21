@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CargoTecnico } from '../../../interfaces/CargoTecnico/CargoTecnico';
 import { CargoTecnicoService } from '../../../servicios/CargoTecnico/cargo-tecnico.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './listar-cargo-tecnico.component.html',
   styleUrl: './listar-cargo-tecnico.component.css'
 })
-export class ListarCargoTecnicoComponent {
+export class ListarCargoTecnicoComponent  implements OnInit{
   ListarCargoTecnico: CargoTecnico[] = []
   loading: boolean = false;
 

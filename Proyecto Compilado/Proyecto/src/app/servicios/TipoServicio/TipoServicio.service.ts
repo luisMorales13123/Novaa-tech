@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tiposervicio } from '../../interfaces/TipoServicio/TipoServicio';
 
@@ -17,8 +17,13 @@ private myapiUrl:String;
   }
 //Listar Producto
   getListProducts(): Observable<tiposervicio[]>{
-return this.http.get<tiposervicio[]>(`${this.myappUrl}${this.myapiUrl}`);
-  }
+ 
+    const token = localStorage.getItem('token')
+    const header = new HttpHeaders().set('Authorization',`Bearer ${token}`)
+return this.http.get<tiposervicio[]>(`${this.myappUrl}${this.myapiUrl}`,{headers:header});
+
+  
+}
 //Eliminar Producto
   deleteProducto(id: number): Observable<void> {
    return this.http.delete<void>(`${this.myappUrl}${this.myapiUrl}${id}`)

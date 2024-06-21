@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Servicio } from '../../interfaces/Servicio/Servicio';
 import { Observable } from 'rxjs';
 
@@ -17,7 +17,10 @@ export class ServicioService {
   }
   // Listar
   getListServicios(): Observable<Servicio[]>{
-    return this.http.get<Servicio[]>(`${this.myapp}${this.apiurl}Listar`);
+ const token = localStorage.getItem('token')
+    const header = new HttpHeaders().set('Authorization',`Bearer ${token}`)
+return this.http.get<Servicio[]>(`${this.myapp}${this.apiurl}Listar`,{headers:header});  
+
   }
   // ELiminar
   deleteServicio(id: number): Observable<void> {
