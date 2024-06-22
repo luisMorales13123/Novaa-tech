@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Alexander Marriaga',
+      title: 'Luis Fernando Morales',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -40,7 +40,7 @@ class MyHomePage extends StatelessWidget {
         children: [
           SizedBox(height: 20.0),
           Text('Luis Fernando Morales', style: TextStyle(fontSize: 30.0)),
-          SizedBox(height: 10.0), 
+          SizedBox(height: 10.0),
           Icon(Icons.crop_square, size: 20.0, color: Colors.black),
           SizedBox(height: 10.0),
           Icon(Icons.star, size: 20.0, color: Colors.black),
