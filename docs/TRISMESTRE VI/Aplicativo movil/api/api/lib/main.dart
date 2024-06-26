@@ -29,9 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _login(BuildContext context) async {
-    // Aquí deberías agregar la lógica de autenticación
-    // Por ejemplo, podrías realizar una solicitud a tu API de autenticación
-    // Para este ejemplo, simplemente navegaremos a la pantalla de datos
+
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => MyHomePage()),
